@@ -1,0 +1,15 @@
+.container .card{
+  text-align: center;
+  margin: auto;
+}
+
+.container .card table{
+  width: 50%;
+  background-color:antiquewhite;
+  text-align: center;
+  margin: auto;
+}
+
+h1{
+  margin-top: 1;
+}

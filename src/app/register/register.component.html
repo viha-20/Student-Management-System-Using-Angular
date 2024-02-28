@@ -1,0 +1,50 @@
+<div class="container">
+  <div class="card">
+    <h1>Registration From</h1>
+
+    <form #myForm="ngForm" (ngSubmit)="doRegistration(myForm.value)">
+      <p>
+        <mat-form-field appearance="outline" class="field">
+          <mat-label>Name</mat-label>
+          <input type="text" name="name" [(ngModel)]="data.name" matInput placeholder="Enter Name">
+        </mat-form-field>
+      </p>
+
+      <p>
+        <mat-form-field appearance="outline" class="field">
+          <mat-label>Email</mat-label>
+          <input type="email" name="email" [(ngModel)]="data.email" matInput placeholder="Enter Email">
+        </mat-form-field>
+      </p>
+
+      <p>
+        <mat-form-field appearance="outline" class="field">
+          <mat-label>Mobile</mat-label>
+          <input type="text" name="mobile" [(ngModel)]="data.mobile" matInput placeholder="Enter Mobile">
+        </mat-form-field>
+      </p>
+
+      <p>
+        <mat-form-field appearance="outline" class="field">
+          <mat-label>Address</mat-label>
+          <input type="text" name="address" [(ngModel)]="data.address" matInput placeholder="Enter Address">
+        </mat-form-field>
+      </p>
+
+      <p>
+        <mat-form-field appearance="outline" class="field">
+          <mat-label>Password</mat-label>
+          <input type="password" name="password" [(ngModel)]="data.password"  matInput placeholder="Enter Password">
+        </mat-form-field>
+      </p>
+
+      <div class="send">
+        <button type="submit" mat-raised-button color="primary">Register</button>
+        <button type="reset" mat-raised-button color="accent">Reset</button>
+
+      </div>
+
+
+    </form>
+  </div>
+</div>
