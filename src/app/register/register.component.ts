@@ -1,42 +1,36 @@
 import { Component } from '@angular/core';
-import { getMatFormFieldDuplicatedHintError } from '@angular/material/form-field';
-import { FormControl ,FormGroup} from '@angular/forms';
-
+import { FormControl, FormGroup } from '@angular/forms';
 
 @Component({
   selector: 'app-register',
   templateUrl: './register.component.html',
-  styleUrl: './register.component.css'
+  styleUrls: ['./register.component.css']
 })
 export class RegisterComponent {
 
-  constructor(){
+  user_records: any[] = [];
+  data = {
+    name: "",
+    email: "",
+    mobile: "",
+    address: "",
+    password: ""
+  };
 
-  }
   ngOnInit(): void {
-
-
+    // You can perform any initialization here if needed.
   }
 
-  user_records:any[] = [];
-  data={
-    name:"",
-    email:"",
-    mobile:"",
-    address:"",
-    password:""
-  }
-  doRegistration(Values:any){
-    this.user_records=JSON.parse(localStorage.getItem('users') || '{}');
-    if(this.user_records.some((v)=>{
-      return v.email==this.data.email
-    })){
+  doRegistration(Values: any): void {
+    // Ensure user_records is always an array
+    this.user_records = JSON.parse(localStorage.getItem('users') || '[]');
+
+    if (this.user_records.some((v) => v.email === this.data.email)) {
       alert('Duplicate Data');
-    }
-    else{
-      this.user_records.push(this.data)
-      localStorage.setItem("users",JSON.stringify(this.user_records));
-      alert("Hi "+this.data.name+" you are successfully Registered");
+    } else {
+      this.user_records.push({ ...this.data }); // Copy data to avoid reference issues
+      localStorage.setItem("users", JSON.stringify(this.user_records));
+      alert("Hi " + this.data.name + " you are successfully Registered");
     }
   }
 }
