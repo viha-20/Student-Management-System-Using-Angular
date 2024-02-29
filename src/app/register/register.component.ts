@@ -18,11 +18,9 @@ export class RegisterComponent {
   };
 
   ngOnInit(): void {
-    // You can perform any initialization here if needed.
   }
 
   doRegistration(Values: any): void {
-    // Ensure user_records is always an array
     this.user_records = JSON.parse(localStorage.getItem('users') || '[]');
 
     if (this.user_records.some((v) => v.email === this.data.email)) {
