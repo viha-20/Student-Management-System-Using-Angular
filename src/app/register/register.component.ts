@@ -26,7 +26,7 @@ export class RegisterComponent {
     if (this.user_records.some((v) => v.email === this.data.email)) {
       alert('Duplicate Data');
     } else {
-      this.user_records.push({ ...this.data }); // Copy data to avoid reference issues
+      this.user_records.push({ ...this.data });
       localStorage.setItem("users", JSON.stringify(this.user_records));
       alert("Hi " + this.data.name + " you are successfully Registered");
     }
